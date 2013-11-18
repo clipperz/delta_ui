@@ -1,5 +1,5 @@
 function _clipperz() {
-	var container=leftPanel=rightPanel=closeButtons=null;
+	var container=leftPanel=rightPanel=closeButtons=cardsContainer=cards=null;
 
 	/* front-end */
 	var setContainer=function(elm) { if(elm) container=elm; }
@@ -19,6 +19,20 @@ function _clipperz() {
 		hideCloseButtons();
 		}
 	this.setCloseButtons=setCloseButtons;
+	var setCardsContainer=function(elm) {
+		if(elm) {
+			cardsContainer=elm;
+			var c=elm.querySelectorAll(".card"); // get cards list
+			cards=Array();
+			for(i in c) {
+				if(c[i].className=='card') {
+					cards[cards.length]=c[i];
+					c[i].addEventListener("click",openCloseCard);
+					}
+				}
+			}
+		}
+	this.setCardsContainer=setCardsContainer;
 
 	var openLeftPanel=function() {
 		if(container&&leftPanel) {
@@ -44,6 +58,7 @@ function _clipperz() {
 		}
 	this.closePanels=closePanels;
 	
+	// when a panel is shown, on the inner side must appears an hidden div, pressing that panel will close
 	var showCloseButtons=function() {
 		for(i in closeButtons) {
 			closeButtons[i].style.display='block';
@@ -54,6 +69,14 @@ function _clipperz() {
 			closeButtons[i].style.display='none';
 			}
 		}
+
+	// show the fastView of a card
+	var openCloseCard=function() {
+		var c=this.querySelector('.fastView');
+		console.log(c);
+		c.style.display=c.style.display=="block"?"none":"block";
+		}
+
 
 	/* drag and drop */
 	var makeDraggable=function(elm,customOnDragStart,customOnDrag,customOnDragStop) {
@@ -74,7 +97,7 @@ function _clipperz() {
 	this.makeDraggable=makeDraggable;
 	
 	var onDragStart=function(e) {
-		e.preventDefault();
+		//e.preventDefault();
 		this.addEventListener("mousemove",onDrag);
 		this.customOnDragStart(e);
 		}

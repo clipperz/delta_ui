@@ -18,6 +18,8 @@ input,textarea,select {
 	background-color:#eee;
 	padding:15px 25px;
 	font-size:40px;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
 	}
 input[type=submit] {
 	cursor:pointer;
@@ -72,6 +74,10 @@ h4 {
 	}
 #main #header {
 	position:relative;
+	z-index:90;
+	top:0;
+	left:0;
+	width:100%;
 	background:#FF9900;
 	height:150px;
 	text-align:center;
@@ -107,6 +113,25 @@ h4 {
 	height:80px;
 	padding:30px;
 	}
+#main #scroller {
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	}
+#main #scroller.transition {
+	transition:top .3s ease;
+	}
+#search {
+	position:relative;
+	background-color:#ddd;
+	padding:35px 40px;
+	height:80px;
+	}
+#search input {
+	background-color:#fff;
+	width:100%;
+	}
 #cards {
 	padding:40px;
 	overflow:auto;
@@ -114,8 +139,28 @@ h4 {
 #cards .card {
 	font-size:1.5em;
 	border:1px solid #ccc;
-	padding:40px;
 	margin-bottom:20px;
+	cursor:pointer;
+	}
+#cards .cardLabel {
+	padding:40px;
+	}
+#cards .fastView {
+	display:none;
+	padding:40px;
+	padding-top:20px;
+	background-color:#f8f8f8;
+	}
+#cards label {
+	color:#FF9900;
+	font-size:20px;
+	display:block;
+	margin:20px 10px 10px 10px;
+	}
+#cards input {
+	width:100%;
+	font-size:30px;
+	padding:15px 30px;
 	}
 #cards .add {
 	text-align:center;
@@ -214,6 +259,18 @@ and (max-device-width : 480px) {
 		}
 	h2 {
 		font-size:60px;
+		}
+	#search {
+		padding-top:25px;
+		padding-bottom:25px;
+		height:100px;
+		}
+	#search input {
+		font-size:1.1em;
+		padding:20px 50px;
+		}
+	#cards input {
+		font-size:1.1em;
 		}
 
 	}
