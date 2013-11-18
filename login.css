@@ -1,0 +1,99 @@
+body {
+	background:#FF9900;
+	}
+
+#logo {
+	text-align:center;
+	padding:40px;
+	}
+#logo svg {
+	width:150px;
+	height:150px;
+	}
+.logo {
+	fill:#fff;
+	}
+
+#login {
+	padding:50px;
+	}
+#login form {
+	position:relative;
+	padding:50px;
+	background-color:#fff;
+	margin-top:40px;
+	border-radius:20px;
+	}
+#login form:before {
+	content:'';
+	position:absolute;
+	top:-18px;
+	left:48%;
+	height:0;
+	width:0;
+	border:20px solid transparent;
+	border-top:0;
+	border-bottom:20px solid #fff;
+	}
+#login input {
+	display:block;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+	width:100%;
+	margin-bottom:15px;
+	}
+
+#signup {
+	position:fixed;
+	top:100%;
+	left:0;
+	width:100%;
+	background-color:#000;
+	height:100%;
+	z-index:100;
+	color:#fff;
+	}
+#signup.transition {
+	transition:top .5s ease;
+	}
+#signup h2 {
+	position:absolute;
+	bottom:100%;
+	left:0;
+	width:100%;
+	text-align:center;
+	color:#fff;
+	cursor:pointer;
+	padding:30px 0;
+	margin:0;
+	}
+#signup svg {
+	width:70px;
+	height:25px;
+	fill:#fff;
+	}
+#signupPage {
+	padding:80px;
+	}
+
+	
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+
+	#login input {
+		margin-bottom:30px;
+		}
+
+	}
+
+/* Smartphones (landscape) ----------- */
+@media only screen 
+and (min-width : 321px) {
+	}
+
+/* Smartphones (portrait) ----------- */
+@media only screen 
+and (max-width : 320px) {
+	}
