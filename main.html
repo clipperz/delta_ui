@@ -42,9 +42,9 @@
 				</div>
 			</div>
 
-		<div id="scroller">
+		<div id="scrollingBox">
 			<!-- search -->
-			<div id="search" onclick="document.getElementById('debug').innerHTML='search';">
+			<div id="search">
 				<input type="text" value="" placeholder="Search..." id="searchstring">
 				</div>
 
@@ -55,58 +55,101 @@
 			<div id="cards">
 				<div class="card">
 					<div class="cardLabel">Lipsum</div>
-					<div class="fastView">
-						<label for="1username">Username</label>
+					<div class="fastView"><div class="pad">
+						<label for="username">Username</label>
 						<input type="text" value="PrimoUser"><br />
-						<label for="1username">Password</label>
+						<label for="username">Password</label>
 						<input type="text" value="PrimaPassword"><br />
-						<span class="showPassword">Mostra Password</span>
 
 						<div class="actions">
-							Edit
-							Delete
+							<div class="edit">Edit</div>
+							<div class="delete">Delete</div>
 							</div>
-						</div>
+						</div></div>
 					</div>
 				<div class="card">
 					<div class="cardLabel">Lorem Ipsum</div>
-					<div class="fastView">
+					<div class="fastView"><div class="pad">
 						<label for="1username">Username</label>
 						<input type="text" value="PrimoUser"><br />
 						<label for="1username">Password</label>
 						<input type="text" value="PrimaPassword"><br />
-						<span class="showPassword">Mostra Password</span>
 
 						<div class="actions">
-							Edit
-							Delete
+							<div class="edit">Edit</div>
+							<div class="delete">Delete</div>
 							</div>
-						</div>
+						</div></div>
 					</div>
 				<div class="card">
 					<div class="cardLabel">Ipsum dolor sit amet</div>
-					<div class="fastView">
+					<div class="fastView"><div class="pad">
 						<label for="1username">Username</label>
 						<input type="text" value="PrimoUser"><br />
 						<label for="1username">Password</label>
 						<input type="text" value="PrimaPassword"><br />
-						<span class="showPassword">Mostra Password</span>
 
 						<div class="actions">
-							Edit
-							Delete
+							<div class="edit">Edit</div>
+							<div class="delete">Delete</div>
 							</div>
-						</div>
+						</div></div>
 					</div>
+				<div class="card">
+					<div class="cardLabel">Ipsum dolor sit amet</div>
+					<div class="fastView"><div class="pad">
+						<label for="1username">Username</label>
+						<input type="text" value="PrimoUser"><br />
+						<label for="1username">Password</label>
+						<input type="text" value="PrimaPassword"><br />
 
-				<!-- add a new card button -->
-				<div class="add"><div id="addCardButton">
-					<svg version="1.1" x="0px" y="0px" viewBox="0 0 16.047 16.047" xml:space="preserve">
-						<path d="M14.528,6.505H9.542V1.519C9.542,0.68,8.862,0,8.024,0C7.185,0,6.505,0.68,6.505,1.519v4.987H1.519 C0.68,6.505,0,7.185,0,8.024c0,0.838,0.68,1.518,1.519,1.518h4.987v4.986c0,0.839,0.68,1.519,1.519,1.519 c0.838,0,1.518-0.68,1.518-1.519V9.542h4.987c0.839,0,1.519-0.68,1.519-1.518C16.047,7.185,15.367,6.505,14.528,6.505z"/>
-						</svg>
-					</div></div>
+						<div class="actions">
+							<div class="edit">Edit</div>
+							<div class="delete">Delete</div>
+							</div>
+						</div></div>
+					</div>
+				<div class="card">
+					<div class="cardLabel">Tanti campi</div>
+					<div class="fastView"><div class="pad">
+						<label for="1username">Username</label>
+						<input type="text" value="PrimoUser"><br />
+						<label for="1username">Password</label>
+						<input type="text" value="PrimaPassword"><br />
+						<label for="1username">Username</label>
+						<input type="text" value="PrimoUser"><br />
+						<label for="1username">Password</label>
+						<input type="text" value="PrimaPassword"><br />
+
+						<div class="actions">
+							<div class="edit">Edit</div>
+							<div class="delete">Delete</div>
+							</div>
+						</div></div>
+					</div>
+				<div class="card">
+					<div class="cardLabel">Ipsum dolor sit amet</div>
+					<div class="fastView"><div class="pad">
+						<label for="1username">Username</label>
+						<input type="text" value="PrimoUser"><br />
+						<label for="1username">Password</label>
+						<input type="text" value="PrimaPassword"><br />
+
+						<div class="actions">
+							<div class="edit">Edit</div>
+							<div class="delete">Delete</div>
+							</div>
+						</div></div>
+					</div>
 				</div>
 			</div>
+
+			<!-- add a new card button -->
+			<div class="add"><div id="addCardButton">
+				<svg version="1.1" x="0px" y="0px" viewBox="0 0 16.047 16.047" xml:space="preserve">
+					<path d="M14.528,6.505H9.542V1.519C9.542,0.68,8.862,0,8.024,0C7.185,0,6.505,0.68,6.505,1.519v4.987H1.519 C0.68,6.505,0,7.185,0,8.024c0,0.838,0.68,1.518,1.519,1.518h4.987v4.986c0,0.839,0.68,1.519,1.519,1.519 c0.838,0,1.518-0.68,1.518-1.519V9.542h4.987c0.839,0,1.519-0.68,1.519-1.518C16.047,7.185,15.367,6.505,14.528,6.505z"/>
+					</svg>
+				</div></div>
 		</div>
 
 	<!-- tags panel (on the left) -->
@@ -145,35 +188,14 @@
 <script type="text/javascript" charset="utf-8">
 	var clipperz=new _clipperz();
 	clipperz.setContainer(document.getElementById('container'));
-	clipperz.setLeftPanel(document.getElementById('tags'));
-	clipperz.setRightPanel(document.getElementById('advanced'));
+	clipperz.setScrollingBox(document.getElementById('scrollingBox'));
+	clipperz.setLeftPanel(document.getElementById('tags'),document.getElementById('openLeftPanelButton'));
+	clipperz.setRightPanel(document.getElementById('advanced'),document.getElementById('openRightPanelButton'));
 	clipperz.setCloseButtons(document.querySelectorAll(".closePanel"));
-	document.getElementById('openLeftPanelButton').addEventListener("click",clipperz.openLeftPanel);
-	document.getElementById('openRightPanelButton').addEventListener("click",clipperz.openRightPanel);
 	clipperz.setCardsContainer(document.getElementById('cards'));
+	clipperz.setSearchBox(document.getElementById('search'));
+	clipperz.initUI();
 
-	var ddoffset={x:false,y:false}; //drag and drop offset relative to top left
-	var scrollerOnDragStart=function(e) {
-		}
-	var scrollerOnDrag=function(e) {
-		if(ddoffset.x==false) {
-			ddoffset.y=e.clientY-this.offsetTop;
-			ddoffset.x=e.clientX-this.offsetLeft;
-			}
-		this.className='';
-		this.style.top=(e.clientY-ddoffset.y)<document.getElementById('header').offsetHeight?(e.clientY-ddoffset.y)+'px':document.getElementById('header').offsetHeight+'px';
-		}
-	var scrollerOnDragStop=function(e) {
-		this.className='transition';
-		if(parseInt(this.style.top)>document.getElementById('header').offsetHeight*.9) {
-			this.style.top=document.getElementById('header').offsetHeight+'px';
-			document.getElementById('searchstring').focus();
-			}
-		else if(parseInt(this.style.top)>0) this.style.top=0;
-		ddoffset={x:false,y:false};
-		}
-	var scroller=document.getElementById('scroller');
-	clipperz.makeDraggable(scroller,scrollerOnDragStart,scrollerOnDrag,scrollerOnDragStop);
 	</script>
 
 </body>

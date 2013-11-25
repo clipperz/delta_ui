@@ -81,6 +81,7 @@ h4 {
 	background:#FF9900;
 	height:150px;
 	text-align:center;
+	box-shadow:0 0 15px 0 rgba(0,0,0,.2);
 	}
 #main #logo {
 	text-align:center;
@@ -113,13 +114,13 @@ h4 {
 	height:80px;
 	padding:30px;
 	}
-#main #scroller {
+#main #scrollingBox {
 	position:absolute;
 	top:0;
 	left:0;
 	width:100%;
 	}
-#main #scroller.transition {
+#main #scrollingBox.transition {
 	transition:top .3s ease;
 	}
 #search {
@@ -133,50 +134,97 @@ h4 {
 	width:100%;
 	}
 #cards {
-	padding:40px;
 	overflow:auto;
 	}
 #cards .card {
+	position:relative;
 	font-size:1.5em;
-	border:1px solid #ccc;
-	margin-bottom:20px;
+	border-bottom:1px solid #ccc;
 	cursor:pointer;
+	padding:0px;
 	}
 #cards .cardLabel {
-	padding:40px;
+	padding:60px;
 	}
 #cards .fastView {
+	position:relative;
+	background-color:#f0f0f0;
+	transition:height .3s ease-in-out;
+	overflow:hidden;
+	}
+#cards .fastView .pad {
+	padding:20px 40px;
+	}
+#cards .fastView label {
+	color:#FF9900;
+	border-bottom:1px solid #FF9900;
+	padding-bottom:3px;
+	}
+#cards .fastView .showPassword {
+	display:block;
+	text-align:right;
+	font-size:30px;
+	}
+#cards .fastView .actions {
+	margin-top:80px;
+	text-align:center;
+	font-size:40px;
+	}
+#cards .fastView .actions .edit,#cards .fastView .actions .delete {
+	display:inline-block;
+	width:47%;
+	margin:0;
+	border-radius:10px;
+	background-color:#aaa;
+	color:#fff;
+	text-align:center;
+	padding:10px 0;
+	}
+#cards .fastView .actions .edit {
+	margin-right:4%;
+	}
+#cards .card.hidden {
 	display:none;
-	padding:40px;
-	padding-top:20px;
-	background-color:#f8f8f8;
+	}
+#cards .card.opened .cardLabel {
+	color:#FF9900;
+	z-index:30;
+	}
+#cards .card.opened .fastView {
+	box-shadow:inset 0 1px 4px 0 rgba(0,0,0,.2);
 	}
 #cards label {
 	color:#FF9900;
-	font-size:20px;
+	font-size:30px;
 	display:block;
 	margin:20px 10px 10px 10px;
 	}
 #cards input {
 	width:100%;
 	font-size:30px;
-	padding:15px 30px;
+	padding:7px;
+	background-color:transparent;
 	}
-#cards .add {
-	text-align:center;
+
+/* add button */
+.add {
+	position:absolute;
+	bottom:20px;
+	right:20px;
 	}
-#cards .add #addCardButton {
+.add #addCardButton {
 	display:inline-block;
 	padding:10px;
 	border-radius:50%;
-	border:4px solid #fff;
+	border:10px solid #fff;
 	background-color:#aaa;
 	color:#fff;
+	box-shadow:0 1px 4px 0 rgba(0,0,0,.2);
 	}
-#cards .add #addCardButton svg {
+.add #addCardButton svg {
 	fill:#fff;
-	width:80px;
-	height:80px;
+	width:60px;
+	height:60px;
 	padding:30px;
 	}
 
