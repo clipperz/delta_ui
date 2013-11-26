@@ -93,6 +93,23 @@ function _clipperz() {
 			makeDraggable(scrollingBox,scrollingBoxOnDragStart,scrollingBoxOnDrag,scrollingBoxOnDragStop);
 			makeScrollable(scrollingBox,scrollingBoxOnMouseWheel);
 			}
+
+		// replace all password fields with his copiable alternative
+		for(var i=0,p=document.body.getElementsByTagName('INPUT');p[i];i++) {
+			if(p[i].type=='password') {
+				p[i].type='text';
+				p[i].className='password encrypted';
+				var c=document.createElement('DIV');
+				c.className='passwordContainer';
+				p[i].parentNode.insertBefore(c,p[i]);
+				c.appendChild(p[i]);
+				var sw=document.createElement('DIV');
+				sw.className='passwordSwitch';
+				sw.addEventListener('click',switchPassword);
+				c.appendChild(sw);
+				}
+			}
+
 		}
 	this.initUI=initUI;
 
@@ -162,6 +179,12 @@ function _clipperz() {
 			closeCard;
 			card.className=card.className.replace("hidden","");
 			}
+		}
+
+	// switch the encryption of the password field in the same parent
+	var switchPassword=function() {
+		var p=this.parentNode.getElementsByTagName('INPUT')[0];
+		p.className=(p.className.indexOf('encrypted')>=0)?p.className.replace('encrypted',''):p.className+' encrypted';
 		}
 
 
