@@ -105,6 +105,7 @@ function _clipperz() {
 				c.appendChild(p[i]);
 				var sw=document.createElement('DIV');
 				sw.className='passwordSwitch';
+				sw.innerHTML='locked';
 				sw.addEventListener('click',switchPassword);
 				c.appendChild(sw);
 				}
@@ -184,6 +185,7 @@ function _clipperz() {
 	// switch the encryption of the password field in the same parent
 	var switchPassword=function() {
 		var p=this.parentNode.getElementsByTagName('INPUT')[0];
+		this.innerHTML=(p.className.indexOf('encrypted')>=0)?'unlocked':'locked';
 		p.className=(p.className.indexOf('encrypted')>=0)?p.className.replace('encrypted',''):p.className+' encrypted';
 		}
 
