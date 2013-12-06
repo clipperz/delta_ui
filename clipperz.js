@@ -12,13 +12,20 @@ function _clipperz() {
 	searchBox = the container of the search input
 	tagBox = the container of the tag title
 	cards = an array of all the avaiable cards
+	ddoffset = drag and drop: the offset beetween the coords of the click and the ones of the dragged object
+	ddcurrentpos = drag and drop: the coords of the dragged obj
+	isDragging = true if some elements is dragged, false if not
 	*/
-	var container=leftPanel=rightPanel=leftPanelButton=rightPanelButton=closeButtons=scrollingBox=cardsContainer=searchBox=tagBox=cards=null;
-	var ddoffset={x:false,y:false};
+	var header=container=leftPanel=rightPanel=leftPanelButton=rightPanelButton=closeButtons=scrollingBox=cardsContainer=searchBox=tagBox=cards=null;
+	var ddoffset={x:false,y:false},ddcurrentpos={x:false,y:false};
 	var isDragging=false;
 
 
 	/* setters (awhf awhf) */
+	var setHeader=function(elm) {
+		if(elm) header=elm;
+		}
+	this.setHeader=setHeader;
 	var setContainer=function(elm) {
 		if(elm) {
 			container=elm;
@@ -124,20 +131,22 @@ function _clipperz() {
 			ddoffset.y=e.clientY-this.offsetTop;
 			ddoffset.x=e.clientX-this.offsetLeft;
 			}
+		ddcurrentpos.y=e.clientY-this.offsetTop;
+		ddcurrentpos.x=e.clientX-this.offsetLeft;
 		this.className='';
 		this.style.top=e.clientY-ddoffset.y+'px';
 		}
 
 	var scrollingBoxOnDragStop=function(e) {
+		this&&this!=window?elm=this:elm=scrollingBox;
 		if(e) e.stopPropagation();
-			this&&this!=window?elm=this:elm=scrollingBox;
-			elm.className='transition';
-			if(parseInt(elm.style.top)>document.getElementById('header').offsetHeight*.7) { // if you scroll down for more than 70% of the searchbox, show and focus on the search input
-				elm.style.top=document.getElementById('header').offsetHeight+'px';
-				if(this.startingOffsetTop<document.getElementById('header').offsetHeight) document.getElementById('searchstring').focus(); // focus on search only if you're opening the searchbar
-				}
-			else if(parseInt(elm.style.top)>0) elm.style.top=0; // else completely hide the searchbox
-			if(parseInt(elm.style.top)<document.body.offsetHeight-scrollingBox.offsetHeight) elm.style.top=document.body.offsetHeight-scrollingBox.offsetHeight+'px';
+		elm.className='transition';
+		if(parseInt(elm.style.top)>header.offsetHeight*.7) { // if you scroll down for more than 70% of the searchbox, show and focus on the search input
+			elm.style.top=header.offsetHeight+'px';
+			if(this.startingOffsetTop<header.offsetHeight) document.getElementById('searchstring').focus(); // focus on search only if you're opening the searchbar
+			}
+		else if(parseInt(elm.style.top)>0) elm.style.top=0; // else completely hide the searchbox
+		if(parseInt(elm.style.top)<document.body.offsetHeight-scrollingBox.offsetHeight) elm.style.top=document.body.offsetHeight-scrollingBox.offsetHeight+'px';
 		ddoffset={x:false,y:false};
 		}
 	var scrollingBoxOnMouseWheel=function(delta) {
