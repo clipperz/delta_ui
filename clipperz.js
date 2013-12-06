@@ -13,11 +13,11 @@ function _clipperz() {
 	tagBox = the container of the tag title
 	cards = an array of all the avaiable cards
 	ddoffset = drag and drop: the offset beetween the coords of the click and the ones of the dragged object
-	ddcurrentpos = drag and drop: the coords of the dragged obj
 	isDragging = true if some elements is dragged, false if not
+	dragElement = the element that you are dragging
 	*/
 	var header=container=leftPanel=rightPanel=leftPanelButton=rightPanelButton=closeButtons=scrollingBox=cardsContainer=searchBox=tagBox=cards=null;
-	var ddoffset={x:false,y:false},ddcurrentpos={x:false,y:false};
+	var ddoffset={x:false,y:false},dragElement=null;
 	var isDragging=false;
 
 
@@ -102,7 +102,7 @@ function _clipperz() {
 			}
 
 		// replace all password fields with his copiable alternative
-		for(var i=0,p=document.body.getElementsByTagName('INPUT');p[i];i++) {
+		for(var i=0,p=container.getElementsByTagName('INPUT');p[i];i++) {
 			if(p[i].type=='password') {
 				p[i].type='text';
 				p[i].className='password encrypted';
@@ -131,8 +131,6 @@ function _clipperz() {
 			ddoffset.y=e.clientY-this.offsetTop;
 			ddoffset.x=e.clientX-this.offsetLeft;
 			}
-		ddcurrentpos.y=e.clientY-this.offsetTop;
-		ddcurrentpos.x=e.clientX-this.offsetLeft;
 		this.className='';
 		this.style.top=e.clientY-ddoffset.y+'px';
 		}
@@ -265,7 +263,7 @@ function _clipperz() {
 		elm.customOnDrag=customOnDrag;
 		elm.customOnDragStop=customOnDragStop;
 		elm.addEventListener("dragstart",onDragStart);
-		elm.addEventListener("mouseup",onDragStop);
+		document.body.addEventListener("mouseup",onDragStop);
 		elm.addEventListener("touchstart",onDragStart);
 		elm.addEventListener("touchmove",onTouchMove);
 		elm.addEventListener("touchend",onDragStop);
@@ -274,6 +272,7 @@ function _clipperz() {
 	
 	var onDragStart=function(e) {
 		isDragging=true;
+		dragElement=this;
 		this.addEventListener("mousemove",onDrag);
 		this.customOnDragStart(e);
 		}
@@ -289,8 +288,8 @@ function _clipperz() {
 		}
 	var onDragStop=function(e) {
 		if(isDragging) {
-			this.removeEventListener("mousemove",onDrag);
-			this.customOnDragStop(e);
+			dragElement.removeEventListener("mousemove",onDrag);
+			dragElement.customOnDragStop(e);
 			}
 		isDragging=false;
 		}

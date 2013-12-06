@@ -14,51 +14,271 @@
 
 	<link rel="stylesheet" media="all" href="init.css">
 	<link rel="stylesheet" media="all" href="style.css">
-	<link rel="stylesheet" media="all" href="login.css">
 	<script type="text/javascript" src="clipperz.js"></script>
 </head>
 
 <body>
+<!-- login form -->
+<div class="login">
+	<div class="logo">clipperz</div>
 
-<div id="login">
-	<div id="logo">
-		<svg version="1.1" x="0px" y="0px" viewBox="0 0 140.253 139.026" xml:space="preserve">
-			<g><polygon class="logo" points="9.662,35.616 52.464,49.362 52.464,0 87.766,0 87.766,49.362 130.879,35.616 140.253,65.92 96.826,79.666 125.258,120.28 99.014,139.026 70.583,100.597 41.216,139.026 14.974,120.28 43.715,79.666 -0.022,65.92 9.662,35.616"/></g>
-			</svg>
-		</div>
-
-	<form action="main.html">
+	<form action="" onsubmit="document.body.querySelector('.login').style.display='none'; return false;">
 		<input type="text" placeholder="username" />
 		<input type="password" placeholder="password" />
 		<input type="submit" value="login" />
 		</form>
-	</div>
 
-<div id="signup">
-	<h2>
-	<svg version="1.1" x="0px" y="0px" viewBox="0 0 25 5" xml:space="preserve">
-		<path d="M24.84,3.234c0,1.786-1.448,3.234-3.234,3.234H3.234C1.448,6.468,0,5.021,0,3.234l0,0 C0,1.448,1.448,0,3.234,0h18.372C23.393,0,24.84,1.448,24.84,3.234L24.84,3.234z"/>
-		</svg><br />
-		Sign-up</h2>
-		
-	<div id="signupPage">
-		Lorem ipsum dolor sit amet
+	<div class="signup">
+		<h2><svg version="1.1" x="0px" y="0px" viewBox="0 0 25 5" xml:space="preserve">
+			<path d="M24.84,3.234c0,1.786-1.448,3.234-3.234,3.234H3.234C1.448,6.468,0,5.021,0,3.234l0,0 C0,1.448,1.448,0,3.234,0h18.372C23.393,0,24.84,1.448,24.84,3.234L24.84,3.234z"/>
+			</svg><br />
+			Sign-up</h2>
+			
+		<!-- signup form -->
+		<div class="signupPage">
+			<form action="" onsubmit="document.body.querySelector('.login').style.display='none'; return false;">
+				<input type="text" placeholder="username" />
+				<input type="password" placeholder="passphrase" />
+				<input type="password" placeholder="confirm passphrase" />
+				<table>
+				<tr><td><input type="checkbox" name="risk" id="risk"></td><td><label for="risk">I understand that Clipperz will not be able to recover a lost passphrase.</label></td></tr>
+				<tr><td><input type="checkbox" name="tos" id="tos"></td><td><label for="tos">I have read and agreed to the Terms of Service.</label></td></tr>
+				</table><br>
+				<br>
+				<input type="submit" value="signup" />
+				</form>
+			</div>
 		</div>
 	</div>
+
+<div class="container">
+
+	<!-- main panel -->
+	<div id="main">
+		<!-- header with logo and buttons -->
+		<header>
+			<div class="logo">clipperz</div>
+			<div class="openLeftPanelButton">tags</div>
+			<div class="openRightPanelButton">options</div>
+			</header>
+
+		<div id="scrollingBox">
+			<!-- search -->
+			<div id="search">
+				<input type="text" value="" placeholder="Search..." id="searchstring">
+				</div>
+
+			<!-- selected tag -->
+			<div id="selectedTag"></div>
+
+			<!-- list of cards -->
+			<div id="cards">
+
+				<div class="card" tags="#internet,#bank">
+					<div class="cardLabel">Lipsum</div>
+					<div class="fastView"><div class="pad">
+						<label>Username</label>
+						<input type="text" value="PrimoUser"><br />
+						<label>Password</label>
+						<input type="password" value="PrimaPassword"><br />
+
+						<div class="actions">
+							<div class="edit">edit</div>
+							<div class="delete">delete</div>
+							</div>
+						</div></div>
+					</div>
+
+				<div class="card" tags="#internet">
+					<div class="cardLabel">Lorem ipsum</div>
+					<div class="fastView"><div class="pad">
+						<label>Username</label>
+						<input type="text" value="PrimoUser"><br />
+						<label>Password</label>
+						<input type="password" value="PrimaPassword"><br />
+
+						<div class="actions">
+							<div class="edit">edit</div>
+							<div class="delete">delete</div>
+							</div>
+						</div></div>
+					</div>
+
+				<div class="card" tags="#internet,#favorites">
+					<div class="cardLabel">Facebook</div>
+					<div class="fastView"><div class="pad">
+						<label>Username</label>
+						<input type="text" value="PrimoUser"><br />
+						<label>Password</label>
+						<input type="password" value="PrimaPassword"><br />
+
+						<div class="actions">
+							<div class="edit">edit</div>
+							<div class="delete">delete</div>
+							</div>
+						</div></div>
+					</div>
+
+				<div class="card" tags="#internet">
+					<div class="cardLabel">Twitter</div>
+					<div class="fastView"><div class="pad">
+						<label>Username</label>
+						<input type="text" value="PrimoUser"><br />
+						<label>Password</label>
+						<input type="password" value="PrimaPassword"><br />
+
+						<div class="actions">
+							<div class="edit">edit</div>
+							<div class="delete">delete</div>
+							</div>
+						</div></div>
+					</div>
+
+				<div class="card" tags="#bank">
+					<div class="cardLabel">Home banking</div>
+					<div class="fastView"><div class="pad">
+						<label>Username</label>
+						<input type="text" value="PrimoUser"><br />
+						<label>Password</label>
+						<input type="password" value="PrimaPassword"><br />
+
+						<div class="actions">
+							<div class="edit">edit</div>
+							<div class="delete">delete</div>
+							</div>
+						</div></div>
+					</div>
+
+				<div class="card" tags="#wi-fi,#favorites">
+					<div class="cardLabel">Wi-fi</div>
+					<div class="fastView"><div class="pad">
+						<label>Username</label>
+						<input type="text" value="PrimoUser"><br />
+						<label>Password</label>
+						<input type="password" value="PrimaPassword"><br />
+
+						<div class="actions">
+							<div class="edit">edit</div>
+							<div class="delete">delete</div>
+							</div>
+						</div></div>
+					</div>
+
+				<div class="card" tags="#ftp">
+					<div class="cardLabel">FTP of my fucking awesome website</div>
+					<div class="fastView"><div class="pad">
+						<label>Username</label>
+						<input type="text" value="PrimoUser"><br />
+						<label>Password</label>
+						<input type="password" value="PrimaPassword"><br />
+						<label>Host</label>
+						<input type="text" value="123.456.789.0"><br />
+
+						<div class="actions">
+							<div class="edit">edit</div>
+							<div class="delete">delete</div>
+							</div>
+						</div></div>
+					</div>
+
+				<div class="card" tags="#mysql">
+					<div class="cardLabel">MySQL db of my fucking awesome website</div>
+					<div class="fastView"><div class="pad">
+						<label>Username</label>
+						<input type="text" value="PrimoUser"><br />
+						<label>Password</label>
+						<input type="password" value="youllneverdiscoverthis"><br />
+						<label>Host</label>
+						<input type="text" value="localhost"><br />
+						<label>DB name</label>
+						<input type="text" value="mydatabase"><br />
+
+						<div class="actions">
+							<div class="edit">edit</div>
+							<div class="delete">delete</div>
+							</div>
+						</div></div>
+					</div>
+
+				<div class="card">
+					<div class="cardLabel">Lipsum</div>
+					<div class="fastView"><div class="pad">
+						<label>Username</label>
+						<input type="text" value="PrimoUser"><br />
+						<label>Password</label>
+						<input type="password" value="PrimaPassword"><br />
+
+						<div class="actions">
+							<div class="edit">edit</div>
+							<div class="delete">delete</div>
+							</div>
+						</div></div>
+					</div>
+
+				</div>
+			</div>
+
+			<!-- add a new card button -->
+			<div class="add"><div class="addCardButton">+</div></div>
+		</div>
+
+	<!-- tags panel (on the left) -->
+	<div id="tags">
+		<div class="closePanel"></div>
+		<ul>
+			<li>All</li>
+			<li>Recents</li>
+			<li>Favorites</li>
+			<li class="custom">Internet</li>
+			<li class="custom">Bank</li>
+			<li class="custom">Wi-Fi etc</li>
+			<li class="custom">Custom tag</li>
+			<li class="custom">Another custom tag</li>
+			</ul>
+		</div>
+
+	<!-- advanced options panel (on the right) -->
+	<div id="advanced">
+		<div class="closePanel"></div>
+		<ul>
+			<li>Import</li>
+			<li>Export</li>
+			<li>Manage OTPs</li>
+			</ul>
+
+		<ul>
+			<li>Your account</li>
+			<li>Settings</li>
+			<li>Billing</li>
+			</ul>
+		</div>
+	
+	</div>
+
 <script type="text/javascript" charset="utf-8">
 	var clipperz=new _clipperz();
+	clipperz.setHeader(document.body.getElementsByTagName('header')[0]);
+	clipperz.setContainer(document.querySelector('.container'));
+	clipperz.setScrollingBox(document.getElementById('scrollingBox'));
+	clipperz.setLeftPanel(document.getElementById('tags'),document.body.getElementsByTagName('header')[0].getElementsByTagName('DIV')[1]);
+	clipperz.setRightPanel(document.getElementById('advanced'),document.body.getElementsByTagName('header')[0].getElementsByTagName('DIV')[2]);
+	clipperz.setCloseButtons(document.querySelectorAll(".closePanel"));
+	clipperz.setCardsContainer(document.getElementById('cards'));
+	clipperz.setSearchBox(document.getElementById('search'));
 
 	var signupOnDrag=function(e) {
-		this.className='';
+		this.className=this.className.replace('transition','');
 		this.style.top=e.clientY+'px';
 		}
 	var signupOnDragStop=function(e) {
-		this.className='transition';
+		this.className+=' transition';
 		this.style.top=(parseInt(this.style.top)>document.body.offsetHeight*.6)?"100%":0;
 		}
-
-	var signup=document.getElementById('signup');
+	var signup=document.querySelector('.signup');
 	clipperz.makeDraggable(signup,false,signupOnDrag,signupOnDragStop);
+
+	clipperz.initUI();
+
 	</script>
 
 </body>
